@@ -1,0 +1,91 @@
+#!/bin/bash
+
+build ()
+{
+    ${DOCKER_COMPOSE} build --force-rm
+}
+
+run ()
+{
+    ${DOCKER_COMPOSE} up -d --build --force-recreate
+}
+
+stop ()
+{
+    ${DOCKER_COMPOSE} stop
+}
+
+destroy ()
+{
+    ${DOCKER_COMPOSE} down -v --rmi local
+}
+
+install ()
+{
+    ${DOCKER_COMPOSE} exec -T nodejs npm install
+}
+
+bash ()
+{
+    ${DOCKER_COMPOSE} exec --user node nodejs bash
+}
+
+ps ()
+{
+    ${DOCKER_COMPOSE} ps
+}
+
+exec ()
+{
+    ARGS=$@
+
+    ${DOCKER_COMPOSE} exec --user node -T nodejs ${ARGS}
+}
+
+exec-root ()
+{
+    ARGS=$@
+
+    ${DOCKER_COMPOSE} exec -T nodejs ${ARGS}
+}
+
+
+usage ()
+{
+    echo "usage: bin/app [ENV] COMMAND [ARGUMENTS]
+
+    build               Build containers for actual project
+    run                 Run containers for actual project
+    stop                Stop containers for actual project
+    destroy             Remove containers for actual project
+    ps                  List containers for actual project
+    install             Install dependencies for actual project
+    bash                Run bash for actual project
+    exec                Execute command inside app container
+    exec-root           Execute command has root inside app container
+    "
+}
+
+main ()
+{
+    CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    DOCKER_COMPOSE_FILE="$CURRENT_DIR/../docker/docker-compose.yml"
+
+    declare DOCKER_COMPOSE="docker-compose -f $DOCKER_COMPOSE_FILE"
+
+    if [ -z $1 ]; then
+        usage
+        exit 0
+    fi
+
+    COMMAND=$1
+
+    if [[ ! "$COMMAND" =~ ^build|run|stop|destroy|install|bash|exec|exec-root|ps$ ]]; then
+        echo "$COMMAND is not a supported command"
+        exit 1
+    fi
+
+    $@
+}
+
+main $@

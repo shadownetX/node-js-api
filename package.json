@@ -1,0 +1,22 @@
+{
+  "name": "node-js-api",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "description": "node-js api",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "node app/app.js"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "api"
+  ],
+  "author": "Thomas Thiebaudet <thomas@thiebaudet.fr> (https://www.thiebaudet.fr)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}

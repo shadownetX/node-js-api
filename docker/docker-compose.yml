@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nodejs:
+    build: node
+    container_name: ${APP_NAME}-${NODE_HOST}
+    hostname: ${NODE_HOST}
+    command: bash -c "npm install && npm start"
+    volumes:
+      - ${APP_DIR}:/usr/src/app
+    ports:
+      - ${NODE_EXPOSE_PORT}:${NODE_PORT}
+    links:
+      - mongodb
+
+  mongodb:
+    image: mongo:3
+    container_name: ${APP_NAME}-${MONGODB_HOST}
+    hostname: ${MONGODB_HOST}
+    ports:
+      - ${MONGO_EXPOSE_PORT}:${MONGO_PORT}
