@@ -5,18 +5,36 @@
     "node": ">=8.0.0"
   },
   "description": "node-js api",
+  "nyc": {
+    "all": true,
+    "cache": true
+  },
   "main": "app/app.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "node app/app.js",
+    "test": "nyc --reporter=text mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shadownetX/node-js-api.git"
   },
   "keywords": [
     "node",
     "nodejs",
-    "api"
+    "api",
+    "express",
+    "front"
   ],
   "author": "Thomas Thiebaudet <thomas@thiebaudet.fr> (https://www.thiebaudet.fr)",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.5.0",
+    "nyc": "^11.2.1",
+    "request": "^2.83.0"
   }
 }
