@@ -22,6 +22,7 @@ destroy ()
 
 install ()
 {
+    cp .env.dist .env
     ${DOCKER_COMPOSE} exec -T nodejs npm install
 }
 

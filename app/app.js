@@ -1,6 +1,6 @@
 const express = require('express');
 
-app = express();
+const app = express();
 
 app.get('/', function (req, res) {
     res.send('Hello Express');
@@ -9,3 +9,5 @@ app.get('/', function (req, res) {
 console.log('NodeJS Is Running');
 
 app.listen(3000);
+
+module.exports = app;
