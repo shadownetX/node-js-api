@@ -50,6 +50,11 @@ exec-root ()
     ${DOCKER_COMPOSE} exec -T nodejs ${ARGS}
 }
 
+tests ()
+{
+    ${DOCKER_COMPOSE} exec -T --user node nodejs npm test
+}
+
 
 usage ()
 {
@@ -64,6 +69,7 @@ usage ()
     bash                Run bash for actual project
     exec                Execute command inside app container
     exec-root           Execute command has root inside app container
+    tests               Run tests for actual project
     "
 }
 
@@ -81,7 +87,7 @@ main ()
 
     COMMAND=$1
 
-    if [[ ! "$COMMAND" =~ ^build|run|stop|destroy|install|bash|exec|exec-root|ps$ ]]; then
+    if [[ ! "$COMMAND" =~ ^build|run|stop|destroy|install|bash|exec|exec-root|tests|ps$ ]]; then
         echo "$COMMAND is not a supported command"
         exit 1
     fi

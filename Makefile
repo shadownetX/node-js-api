@@ -27,3 +27,7 @@ destroy: ## Remove containers for actual project
 install: ## Install dependencies for actual project
 	$(info --> Install dependencies for actual project)
 	@bin/app install
+
+tests: ## Run tests for actual project
+	$(info --> Run tests for actual project)
+	@bin/app tests
