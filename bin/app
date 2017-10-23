@@ -22,7 +22,6 @@ destroy ()
 
 install ()
 {
-    cp .env.dist .env
     ${DOCKER_COMPOSE} exec -T nodejs npm install
 }
 
@@ -77,6 +76,12 @@ main ()
 {
     CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     DOCKER_COMPOSE_FILE="$CURRENT_DIR/../docker/docker-compose.yml"
+    
+    ENV_FILE=.env
+
+    if [[ ! -e ${ENV_FILE} ]]; then
+        cp .env.dist .env
+    fi
 
     declare DOCKER_COMPOSE="docker-compose -f $DOCKER_COMPOSE_FILE"
 
