@@ -16,6 +16,10 @@ run: ## Run containers for actual project
 	$(info --> Run containers for actual project)
 	@bin/app run
 
+nodemon: ## Run containers with monitoring for actual project
+	$(info --> Run containers with monitoring for actual project)
+	@bin/app nodemon
+
 stop: ## Stop containers for actual project
 	$(info --> Stop containers for actual project)
 	@bin/app stop
