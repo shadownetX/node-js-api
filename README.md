@@ -17,6 +17,7 @@ make build && make run && make install
 |---------------|----------------------|---------------------------------|
 | build         | ```make build```     | Build app                       |
 | run           | ```make run```       | Run app                         |
+| nodemon       | ```make nodemon```   | Run app with monitoring         |
 | install       | ```make install```   | Install app                     |
 | stop          | ```make stop```      | Stop app                        |
 | destroy       | ```make destroy```   | Destroy app                     |

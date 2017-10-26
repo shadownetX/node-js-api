@@ -10,6 +10,11 @@ run ()
     ${DOCKER_COMPOSE} up -d --build --force-recreate
 }
 
+nodemon ()
+{
+    ${DOCKER_COMPOSE} up --build --force-recreate
+}
+
 stop ()
 {
     ${DOCKER_COMPOSE} stop
@@ -61,6 +66,7 @@ usage ()
 
     build               Build containers for actual project
     run                 Run containers for actual project
+    nodemon             Run containers with monitoring for actual project
     stop                Stop containers for actual project
     destroy             Remove containers for actual project
     ps                  List containers for actual project
@@ -92,7 +98,7 @@ main ()
 
     COMMAND=$1
 
-    if [[ ! "$COMMAND" =~ ^build|run|stop|destroy|install|bash|exec|exec-root|tests|ps$ ]]; then
+    if [[ ! "$COMMAND" =~ ^build|run|nodemon|stop|destroy|install|bash|exec|exec-root|tests|ps$ ]]; then
         echo "$COMMAND is not a supported command"
         exit 1
     fi

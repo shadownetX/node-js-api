@@ -2,9 +2,8 @@ var expect = require('chai').expect;
 
 var request = require('request');
 
-it('HomePage should be online and display Hello Express', function (done) {
+it('HomePage should be online', function (done) {
     request('http://localhost:3000', function (error, response, body) {
-        expect(body).to.equal('Hello Express');
         expect(response.statusCode).to.equal(200);
         done();
     });
