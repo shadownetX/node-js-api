@@ -28,7 +28,8 @@
   "author": "Thomas Thiebaudet <thomas@thiebaudet.fr> (https://www.thiebaudet.fr)",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "mongoose": "^4.12.4"
   },
   "devDependencies": {
     "chai": "^4.1.2",
