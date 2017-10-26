@@ -19,3 +19,10 @@ services:
     hostname: ${MONGODB_HOST}
     ports:
       - ${MONGO_EXPOSE_PORT}:${MONGO_PORT}
+
+  mongoclient:
+    image: mongoclient/mongoclient
+    ports:
+      - ${MONGOCLIENT_EXPOSE_PORT}:${MONGOCLIENT_PORT}
+    links:
+      - mongodb
