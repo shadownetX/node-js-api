@@ -1,6 +1,9 @@
-module.exports = function(app) {
-    var articleController = require('../controllers/ArticleController');
+module.exports = function(){
+    var articleController = require('../controllers/ArticleController'),
+    router = require('express').Router();
 
-    app.route('/articles')
-        .get(articleController.list_all_articles);
+    router.get('/articles', articleController.list_all_articles);
+
+    return router;
 };
+

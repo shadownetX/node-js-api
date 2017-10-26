@@ -28,6 +28,8 @@
   "author": "Thomas Thiebaudet <thomas@thiebaudet.fr> (https://www.thiebaudet.fr)",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.1",
+    "dotenv": "^4.0.0",
     "express": "^4.16.1",
     "mongoose": "^4.12.4",
     "mongoose-slug-generator": "^1.0.4",

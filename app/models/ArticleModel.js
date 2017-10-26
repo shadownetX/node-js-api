@@ -5,8 +5,6 @@ var mongoose = require('mongoose'),
 
 mongoose.plugin(slug);
 
-module.exports = mongoose.model('Articles', ArticleSchema);
-
 var ArticleSchema = new Schema({
         title: {
             type: String,
@@ -69,3 +67,5 @@ var ArticleSchema = new Schema({
     {
         timestamps: true
     });
+
+module.exports = mongoose.model('Articles', ArticleSchema);
