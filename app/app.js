@@ -1,13 +1,7 @@
-const express = require('express');
+var express = require('express'),
+    app = express(),
+    port = process.env.PORT || 3000;
 
-const app = express();
-
-app.get('/', function (req, res) {
-    res.send('Hello Express');
-});
-
-console.log('NodeJS Is Running');
+console.log('App server started on: ' + port);
 
 app.listen(3000);
-
-module.exports = app;
